@@ -1,28 +1,25 @@
 <?php 
 
-    $pageTitle = 'Find Agent';
+    $pageTitle = 'Conyact Agent';
     include_once './component/heade.php';
 
     // include prebuil header
     include_once './component/header.php';
 ?>
 
-<div class="agent-contact flex flex-vertical-center">
-    <div class="container">
-        <div class="text-content">
-            <h1>Hello! I'm Here..</h1>
-            <form action="" method="post">
+<div class="contact-agent">
+    <div class="container h-100 flex flex-vertical-center">
+        <div class="form-section w-40">
+            <h1>Hello! I am here..</h1>
+            <form action="../config/mail.php?agentMail=<?php echo $_GET['agentMail'] ?>" method="post">
                 <div class="double-input flex flex-gap-y-20">
-                    <input type="text" placeholder="First Name" name="first-name" required>
-                    <input type="text" placeholder="Last Name" name="last-name" required>
+                    <input type="text" name="first-name" placeholder="First Name" required>
+                    <input type="text" name="last-name" placeholder="Last Name" required>
                 </div>
-                <input type="email" name="email" placeholder="example@gmail.com" required>
-                <br>
-                <textarea name="message" placeholder="Put message here.." cols="30" rows="10"></textarea>
-                <br>
-                <input type="file" name="attachments" id="">
-                <br>
-                <input type="submit" value="Send Quote">
+                <input type="email" placeholder="example@gmail.com" name="email" required>
+                <textarea name="message" placeholder="Message put here.." cols="30" rows="10"></textarea>
+                <input type="file" name="attachment" >
+                <input type="submit" value="Send Quote" class = 'orange-btn'>
             </form>
         </div>
     </div>

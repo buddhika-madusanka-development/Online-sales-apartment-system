@@ -15,7 +15,7 @@
     --input-placeholder-color : #5F7A9A;
 
     --border-color : #dae7f67a;
-    --shadow-color : #041e4246;
+    --shadow-color : #041e421c;
     
 }
 
@@ -44,9 +44,18 @@ a{
     color: white;
 }
 
+p{
+    line-height: 170%;
+}
+
 h1{
     font-weight: 900;
     font-size: 3rem;
+}
+
+h2{
+    font-size: 2rem;
+    font-weight: 800;
 }
 
 /* ==================================================
@@ -111,7 +120,15 @@ h1{
     min-height: 80px;
 }
 
+.h-100{
+    height: 100%;
+}
+
 .w-60{
+    width: 60%;
+}
+
+.w-80{
     width: 80%;
 }
 
@@ -121,6 +138,18 @@ h1{
 
 .w-50{
     width: 50%;
+}
+
+.w-40{
+    width: 40%;
+}
+
+.margin-y-20{
+    margin: 20px 0;
+}
+
+.margin-y-50{
+    margin: 50px 0;
 }
 
 .flex{
@@ -262,70 +291,85 @@ input::file-selector-button{
                 agent page styles
 ================================================== */
 
-.agetn-header{
-    height: 600px;
-    position: relative;
-    background-image: linear-gradient(to right, white, transparent) ,url('../sources/Simple\ Black\ and\ White\ Fashion\ Facebook\ Cover.png');
+.contact-agent{
+    background-image: linear-gradient(to right, white, transparent), url('../sources/Simple\ Black\ and\ White\ Fashion\ Facebook\ Cover.png');
+    height: 90vh;
     background-size: cover;
-    z-index: -1;
+    background-position: center;
 }
 
-.agetn-header .text-content{
-    width: 50%;
-}
-
-.agetn-header .text-content p{
-    padding: 20px 0;
-    line-height: 150%;
-    width: 70%;
+.contact-agent h1{
+    font-size: 2.5rem;
     margin-bottom: 20px;
 }
 
+.contact-agent .container .form-section{
+    background-color: #fff;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 4px 4px 10px var(--shadow-color);
+}
 
-.agent-stat{
+.agent-header{
+    height: 600px;
+    background-size: cover;
+    background-position: center;
+}
+
+.agent-header p{
+    margin-bottom: 40px;
+    line-height: 150%;
+}
+
+.agent-stats{
     background-color: var(--primary-color);
     height: 150px;
+    margin-top: -50px;
     border-radius: 20px;
     color: white;
-    margin-top: -50px;
-    z-index: 1;
 }
 
-.agent-stat .container i{
+.agent-stats i{
     font-size: 4rem;
-    margin-right: 20px;
 }
 
-.agent-stat .container .stat-head{
-    font-size: 28px;
-    font-weight: 700;
+.agent-stats .stat-card .stat-header{
+    font-size: 1.7rem;
+    margin-bottom: 5px;
+    font-weight: 600;
 }
 
-.agent-stat .container .stat-sub-head{
-    font-size: 14px;
-    margin-top: 5px;
+.agent-stats .stat-card .stat-sub-header{
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.554);
 }
 
-.agent-contact{
-    height: 800px;
-    position: relative;
-    background-image: linear-gradient(to right, white, transparent) ,url('../sources/Simple\ Black\ and\ White\ Fashion\ Facebook\ Cover.png');
-    background-size: cover;
-    z-index: -1;
+.agent-cards{
+    display: grid;
+    column-gap: 2rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-.agent-contact .text-content{
-    width: 40%;
-    padding: 50px;
-    box-shadow: 4px 4px 10px var(--shadow-color);
-    border-radius: 20px;
-    background-color: white;
+.agent-card img{
+    width: 100%;
 }
 
-.agent-contact .text-content h1{
-    margin-bottom: 20px;
+.agent-cards a{
+    color: var(--tertiary-color);
 }
 
-.agent-details{
-    margin: 50;
+.agent-cards p{
+    margin-bottom: 10px;
+}
+
+.agent-card{
+    padding: 10px;
+}
+
+.agent-card .text-content{
+    padding: 10px 30px;
+}
+
+.agent-card h3{
+    font-size: 1.5rem;
 }

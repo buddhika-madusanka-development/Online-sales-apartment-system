@@ -9,6 +9,7 @@
             <a href="" class="nav-link">Rent Apartment</a>
             <a href="" class="nav-link">Buy Apartment</a>
             <a href="" class="nav-link">Sell Apartment</a>
+            <a href="./agents.php" class="nav-link">Find Agent</a>
         </div>
         <div class="control-login-link-set link-set link-set-2  link-set-active flex flex-gap-y-20 flex-vertical-center">
             <a href="" class="nav-link">Contact Us</a>

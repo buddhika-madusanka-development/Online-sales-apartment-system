@@ -1,6 +1,29 @@
 <?php 
 
-    $pageTitle = 'Find Agent';
+    include_once '../config/db.php';
+
+    $agentId = $_GET['agentId'];
+
+    // get user id and select the data
+    $query = "SELECT * FROM users WHERE user_id ='$agentId'";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+
+    $agentQuery = "SELECT * FROM agents WHERE agent_id = '$agentId'";
+    $agentResult = mysqli_query($conn, $agentQuery);
+    $agentRow = mysqli_fetch_assoc($agentResult);
+
+    $agentShortDescription = $agentRow['agent_ short_description'];
+    $agentDescription = $agentRow['agent_ description'];
+    $agentAgency = $agentRow['agent_agency'];
+    $agentExperience = $agentRow['agent_experience_years'];
+    $agenProjects = $agentRow['success_projects_count'];
+    $agentClients = $agentRow['customer_count'];
+    $agentCover = $agentRow['agent_cover_img'];
+
+    $agentName = $row['user_first_name']." ".$row['user_last_name'];
+    $pageTitle = $agentName;
+    $agentMail = $row['user_mail'];
     include_once './component/heade.php';
 
     // include prebuil header
@@ -9,47 +32,111 @@
     $button_text = 'Contact me';
 ?>
 
-<div class="agetn-header flex flex-vertical-center">
+<div class="agent-header flex flex-vertical-center" style="
+            background-image: linear-gradient(to right, white, transparent), url('../sources/users/<?php echo $agentCover ?>');
+    ">
     <div class="container">
-        <div class="text-content">
-            <h1>I am Buddhika Madusanka</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error ipsum, nostrum iure temporibus tenetur accusamus soluta architecto ab, molestias ipsa sapiente! Reprehenderit ab consequuntur assumenda quas nam, eligendi illo sint vitae, enim nesciunt rem tempore nisi debitis nostrum accusamus quod.</p>
-            <a href="#" class="orange-btn"><?php echo $button_text?></a>
+        <div class="text-content w-50">
+            <h1>I am <?php echo $agentName ?></h1>
+            <p class="w-80  margin-y-20"><?php echo $agentShortDescription?></p>
+            <a class="orange-btn" href="./agent-contact.php?agentMail=<?php echo $agentMail ?>" >Contact Me</a>
         </div>
     </div>
 </div>
 
 <div class="container">
-    <div class="agent-stat flex flex-vertical-center">
-        <div class="container  flex flex-vertical-center flex-space-between">
-            <div class="stat-card flex flex-vertical-center">
-                <div class="icon"><i class="ri-calendar-line"></i></div>
-                <div class="text-content">
-                    <p class="stat-head">7 years</p>
-                    <p class="stat-sub-head">working experience</p>
+
+    <!-- agent stat showcase -->
+    <div class="agent-stats">
+        <div class="container flex flex-space-between flex-vertical-center h-100">
+            <!-- agent stat card -->
+            <div class="stat-card flex flex-vertical-center flex-gap-y-20">
+                <div class="icon">
+                    <i class="ri-calendar-line"></i>
+                </div>
+                <div class="stat-text">
+                    <p class="stat-header"><?php echo $agentExperience ?> years +</p>
+                    <p class="stat-sub-header">Working experience</p>
                 </div>
             </div>
-            <div class="stat-card flex flex-vertical-center">
-                <div class="icon"><i class="ri-calendar-line"></i></div>
-                <div class="text-content">
-                    <p class="stat-head">Sl agent agencies</p>
-                    <p class="stat-sub-head">currently working in</p>
+
+            <!-- agent stat card -->
+            <div class="stat-card flex flex-vertical-center flex-gap-y-20">
+                <div class="icon">
+                    <i class="ri-home-gear-line"></i>
+                </div>
+                <div class="stat-text">
+                    <p class="stat-header"><?php echo $agentAgency?></p>
+                    <p class="stat-sub-header">currently working in</p>
                 </div>
             </div>
-            <div class="stat-card flex flex-vertical-center">
-                <div class="icon"><i class="ri-calendar-line"></i></div>
-                <div class="text-content">
-                    <p class="stat-head">15 +</p>
-                    <p class="stat-sub-head">Successfull Projects</p>
+            
+            <!-- agent stat card -->
+            <div class="stat-card flex flex-vertical-center flex-gap-y-20">
+                <div class="icon">
+                    <i class="ri-check-double-line"></i>
+                </div>
+                <div class="stat-text">
+                    <p class="stat-header"><?php echo $agenProjects ?> +</p>
+                    <p class="stat-sub-header">Successfull projectes</p>
                 </div>
             </div>
-            <div class="stat-card flex flex-vertical-center">
-                <div class="icon"><i class="ri-calendar-line"></i></div>
-                <div class="text-content">
-                    <p class="stat-head">12 +</p>
-                    <p class="stat-sub-head">Happy Customer base</p>
+
+            <!-- agent stat card -->
+            <div class="stat-card flex flex-vertical-center flex-gap-y-20">
+                <div class="icon">
+                    <i class="ri-user-2-line"></i>
+                </div>
+                <div class="stat-text">
+                    <p class="stat-header"><?php echo $agentClients ?> +</p>
+                    <p class="stat-sub-header">Happy customerbase</p>
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- agent details section -->
+    <div class="agent-about margin-y-50">
+
+        <h2 class="margin-y-20">Little about me</h2>
+        <p class="about-me"><?php echo $agentDescription ?></p>
+    </div>
+
+</div>
+
+
+<div class="container">
+    <div class="agent-cards margin-y-50">
+        <?php
+            $query = "SELECT * FROM agents ORDER BY RAND() LIMIT 4";
+            $result = mysqli_query($conn, $query);
+            $rowCount = mysqli_num_rows($result);
+        
+            while($row = mysqli_fetch_assoc($result)){
+                $userId = $row['user_id'];
+                $checkUser = "SELECT * FROM users WHERE user_id = '$userId'";
+                $userCheckResult = mysqli_query($conn, $checkUser);
+                $userRow = mysqli_fetch_assoc($userCheckResult);
+
+                $userFirstName = $userRow['user_first_name']; 
+                $userlastName = $userRow['user_last_name']; 
+                $companyName = $row['agent_agency'];
+                $fileName = $userRow['user_profile_picture'];
+                $name = $userFirstName." ".$userlastName;
+
+                ?>
+                    <div class = 'agent-card margin-y-20'>
+                        <a href = './agent-profile.php?agentId=<?php echo $row['agent_id']?>&&agentName=<?php echo $name?>'>
+                            <img src="../sources/users/<?php echo $fileName?>" alt="">
+                        </a>
+                        <div class="text-content">
+                            <h3 class = 'agent-name'><?php echo $userFirstName." ".$userlastName ?></h3>
+                            <p class = 'agency-name'><?php echo$companyName ?></p>
+                            <a href = './agent-profile.php?agentId=<?php echo $row['agent_id']?>'>See more -></a>
+                        </div>
+                    </div>
+                <?php
+            }
+        ?>
     </div>
 </div>
