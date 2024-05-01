@@ -24,7 +24,7 @@
     $agentName = $row['user_first_name']." ".$row['user_last_name'];
     $pageTitle = $agentName;
     $agentMail = $row['user_mail'];
-    include_once './component/heade.php';
+    include_once './component/head.php';
 
     // include prebuil header
     include_once './component/header.php';
@@ -140,3 +140,8 @@
         ?>
     </div>
 </div>
+
+<!-- footer area -->
+<?php
+    include_once './component/footer.php'
+?>

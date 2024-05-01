@@ -1,7 +1,7 @@
 <?php 
 
     $pageTitle = 'Agent';
-    include_once './component/heade.php';
+    include_once './component/head.php';
     include_once '../config/db.php';
 
     // include prebuil header
@@ -59,3 +59,8 @@
         ?>
     </div>
 </div>
+
+<!-- footer area -->
+<?php
+    include_once './component/footer.php'
+?>
