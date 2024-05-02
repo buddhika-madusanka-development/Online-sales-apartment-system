@@ -27,23 +27,29 @@
 <div class="container">
     <div class="agent-cards margin-y-50">
         <?php
+
+            // make connection with agent table for collect the data about agent
             $query = "SELECT * FROM agents";
             $result = mysqli_query($conn, $query);
             $rowCount = mysqli_num_rows($result);
         
             while($row = mysqli_fetch_assoc($result)){
                 $userId = $row['user_id'];
+
+                // make connection with user table for seek the data reffering the agents table
                 $checkUser = "SELECT * FROM users WHERE user_id = '$userId'";
                 $userCheckResult = mysqli_query($conn, $checkUser);
                 $userRow = mysqli_fetch_assoc($userCheckResult);
 
+                // Seeking the dara through the users table
                 $userFirstName = $userRow['user_first_name']; 
                 $userlastName = $userRow['user_last_name']; 
                 $companyName = $row['agent_agency'];
                 $fileName = $userRow['user_profile_picture'];
                 $name = $userFirstName." ".$userlastName;
-
                 ?>
+
+                    <!-- single agent card desing -->
                     <div class = 'agent-card margin-y-20'>
                         <a href = './agent-profile.php?agentId=<?php echo $row['agent_id']?>&&agentName=<?php echo $name?>'>
                             <img src="../sources/users/<?php echo $fileName?>" alt="">

@@ -9,10 +9,12 @@
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_assoc($result);
 
+    // Make connection with agents table
     $agentQuery = "SELECT * FROM agents WHERE agent_id = '$agentId'";
     $agentResult = mysqli_query($conn, $agentQuery);
     $agentRow = mysqli_fetch_assoc($agentResult);
 
+    // Collect data from the agent table
     $agentShortDescription = $agentRow['agent_ short_description'];
     $agentDescription = $agentRow['agent_ description'];
     $agentAgency = $agentRow['agent_agency'];
@@ -21,6 +23,7 @@
     $agentClients = $agentRow['customer_count'];
     $agentCover = $agentRow['agent_cover_img'];
 
+    // Collect data from the users table reffering the agent table
     $agentName = $row['user_first_name']." ".$row['user_last_name'];
     $pageTitle = $agentName;
     $agentMail = $row['user_mail'];
@@ -32,6 +35,7 @@
     $button_text = 'Contact me';
 ?>
 
+<!-- agent header section. Show agent details in here -->
 <div class="agent-header flex flex-vertical-center" style="
             background-image: linear-gradient(to right, white, transparent), url('../sources/users/<?php echo $agentCover ?>');
     ">
@@ -44,6 +48,8 @@
     </div>
 </div>
 
+
+<!-- agent show case with their own stats -->
 <div class="container">
 
     <!-- agent stat showcase -->
@@ -104,10 +110,12 @@
 
 </div>
 
-
+<!-- Agent card details. Suggetions for more choises -->
 <div class="container">
     <div class="agent-cards margin-y-50">
         <?php
+
+            // connect with agent table and seek the data
             $query = "SELECT * FROM agents ORDER BY RAND() LIMIT 4";
             $result = mysqli_query($conn, $query);
             $rowCount = mysqli_num_rows($result);
@@ -121,9 +129,10 @@
                 $userFirstName = $userRow['user_first_name']; 
                 $userlastName = $userRow['user_last_name']; 
                 $companyName = $row['agent_agency'];
-                $fileName = $userRow['user_profile_picture'];
+                $fileName = $userRow['user_profilse_picture'];
                 $name = $userFirstName." ".$userlastName;
 
+                // agent card showcase single agent card desing
                 ?>
                     <div class = 'agent-card margin-y-20'>
                         <a href = './agent-profile.php?agentId=<?php echo $row['agent_id']?>&&agentName=<?php echo $name?>'>
