@@ -9,19 +9,12 @@
             <a href="" class="nav-link active-link rent">Rent Apartment</a>
             <a href="" class="nav-link buy">Buy Apartment</a>
             <a href="" class="nav-link sell">Sell Apartment</a>
-            <a href="./agents.php" class="nav-link find">Find Agent</a>
+            <a href="../agents.php" class="nav-link find">Find Agent</a>
         </div>
         <div class="control-login-link-set link-set link-set-2  link-set-active flex flex-gap-y-20 flex-vertical-center">
             <a href="" class="nav-link contact">Contact Us</a>
-            
-            <?php
-                if(isset($_SESSION['user-id'])){ ?>
-                    <a href="./agents.php" class="nav-link find">Dashboard</a>
-                <?php }else{?>                    
-                    <a href="" class="nav-link login">Login | Register</a>
-                    <a href="" class="  border-btn">Become Agent</a>
-                <?php }
-            ?>
+            <a href="" class="nav-link login">Login | Register</a>
+            <a href="" class="  border-btn">Become Agent</a>
         </div>
     </div>
 </div>

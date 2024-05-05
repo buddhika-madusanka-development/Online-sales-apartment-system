@@ -1,32 +1,45 @@
 <?php 
 
     include_once '../config/db.php';
-
+    
     $agentId = $_GET['agentId'];
+    $userId = $_GET['userId'];
+
+    if(!isset($agentId)){
+        header('location:./agents.php');
+    }
+
 
     // get user id and select the data
-    $query = "SELECT * FROM users WHERE user_id ='$agentId'";
+    $query = "SELECT * FROM users WHERE user_id ='$userId'";
     $result = mysqli_query($conn, $query);
-    $row = mysqli_fetch_assoc($result);
 
-    // Make connection with agents table
-    $agentQuery = "SELECT * FROM agents WHERE agent_id = '$agentId'";
-    $agentResult = mysqli_query($conn, $agentQuery);
-    $agentRow = mysqli_fetch_assoc($agentResult);
+    if($result){
+        $row = mysqli_fetch_assoc($result);
+    
+        // Make connection with agents table
+        $agentQuery = "SELECT * FROM agents WHERE agent_id = '$agentId'";
+        $agentResult = mysqli_query($conn, $agentQuery);
+    
+        if($agentResult){
+            $agentRow = mysqli_fetch_assoc($agentResult);
+        
+            // Collect data from the agent table
+            $agentShortDescription = $agentRow['agent_ short_description'];
+            $agentDescription = $agentRow['agent_ description'];
+            $agentAgency = $agentRow['agent_agency'];
+            $agentExperience = $agentRow['agent_experience_years'];
+            $agenProjects = $agentRow['success_projects_count'];
+            $agentClients = $agentRow['customer_count'];
+            $agentCover = $agentRow['agent_cover_img'];
+        
+            // Collect data from the users table reffering the agent table
+            $agentName = $row['user_first_name']." ".$row['user_last_name'];
+            $pageTitle = $agentName;
+            $agentMail = $row['user_mail'];
+        }
+    }
 
-    // Collect data from the agent table
-    $agentShortDescription = $agentRow['agent_ short_description'];
-    $agentDescription = $agentRow['agent_ description'];
-    $agentAgency = $agentRow['agent_agency'];
-    $agentExperience = $agentRow['agent_experience_years'];
-    $agenProjects = $agentRow['success_projects_count'];
-    $agentClients = $agentRow['customer_count'];
-    $agentCover = $agentRow['agent_cover_img'];
-
-    // Collect data from the users table reffering the agent table
-    $agentName = $row['user_first_name']." ".$row['user_last_name'];
-    $pageTitle = $agentName;
-    $agentMail = $row['user_mail'];
     include_once './component/head.php';
 
     // include prebuil header
@@ -42,6 +55,7 @@
     <div class="container">
         <div class="text-content w-50">
             <h1>I am <?php echo $agentName ?></h1>
+            <p><?php echo $agentCover ?></p>
             <p class="w-80  margin-y-20"><?php echo $agentShortDescription?></p>
             <a class="orange-btn" href="./agent-contact.php?agentMail=<?php echo $agentMail ?>" >Contact Me</a>
         </div>
@@ -118,33 +132,29 @@
             // connect with agent table and seek the data
             $query = "SELECT * FROM agents ORDER BY RAND() LIMIT 4";
             $result = mysqli_query($conn, $query);
-            $rowCount = mysqli_num_rows($result);
-        
-            while($row = mysqli_fetch_assoc($result)){
-                $userId = $row['user_id'];
-                $checkUser = "SELECT * FROM users WHERE user_id = '$userId'";
-                $userCheckResult = mysqli_query($conn, $checkUser);
-                $userRow = mysqli_fetch_assoc($userCheckResult);
 
-                $userFirstName = $userRow['user_first_name']; 
-                $userlastName = $userRow['user_last_name']; 
-                $companyName = $row['agent_agency'];
-                $fileName = $userRow['user_profilse_picture'];
-                $name = $userFirstName." ".$userlastName;
+            if($result){
+                $rowCount = mysqli_num_rows($result);
+                
+                if($rowCount > 0){
+                    while($row = mysqli_fetch_assoc($result)){
+                        $userId = $row['user_id'];
+                        $checkUser = "SELECT * FROM users WHERE user_id = '$userId'";
+                        $userCheckResult = mysqli_query($conn, $checkUser);
+                        $userRow = mysqli_fetch_assoc($userCheckResult);
+        
+                        $userFirstName = $userRow['user_first_name']; 
+                        $userlastName = $userRow['user_last_name']; 
+                        $companyName = $row['agent_agency'];
+                        $fileName = $userRow['user_profile_picture'];
+                        $name = $userFirstName." ".$userlastName;
+                    }
+                }else{
+                    echo "There are no agenets to Suggest";
+                }
 
                 // agent card showcase single agent card desing
-                ?>
-                    <div class = 'agent-card margin-y-20'>
-                        <a href = './agent-profile.php?agentId=<?php echo $row['agent_id']?>&&agentName=<?php echo $name?>'>
-                            <img src="../sources/users/<?php echo $fileName?>" alt="">
-                        </a>
-                        <div class="text-content">
-                            <h3 class = 'agent-name'><?php echo $userFirstName." ".$userlastName ?></h3>
-                            <p class = 'agency-name'><?php echo$companyName ?></p>
-                            <a href = './agent-profile.php?agentId=<?php echo $row['agent_id']?>'>See more -></a>
-                        </div>
-                    </div>
-                <?php
+                
             }
         ?>
     </div>
@@ -154,3 +164,4 @@
 <?php
     include_once './component/footer.php'
 ?>
+

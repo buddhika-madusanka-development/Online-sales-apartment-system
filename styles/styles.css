@@ -14,6 +14,8 @@
     --input-button-color : #cfdfef;
     --input-placeholder-color : #5F7A9A;
 
+    --sidebar-background-color : #dfeeff;
+
     --border-color : #dae7f67a;
     --shadow-color : #041e421c;
     
@@ -85,6 +87,14 @@ h2{
     transition: all ease 400ms;
 }
 
+.blue-btn{
+    border: 2px solid var(--secondary-color);
+    background-color: var(--secondary-color);
+    padding: 10px 25px;
+    border-radius: 10px;
+    transition: all ease 400ms;
+}
+
 .border-btn:hover{
     color: var(--primary-color);
     background-color: white;
@@ -110,6 +120,10 @@ h2{
     font-weight: 700;
     font-size: 22px;
     letter-spacing: 5px;
+}
+
+.section-title{
+    font-size: 2rem;
 }
 
 .bg-primary{
@@ -142,6 +156,14 @@ h2{
 
 .w-40{
     width: 40%;
+}
+
+.margin-y-10{
+    margin: 10px 0;
+}
+
+.margin-y-15{
+    margin: 15px 0;
 }
 
 .margin-y-20{
@@ -181,10 +203,13 @@ h2{
     justify-self: flex-end;
 }
 
+.flex-gap-y-10{
+    column-gap: 10px;
+}
+
 .flex-gap-y-20{
     column-gap: 20px;
 }
-
 
 .grid-3{
     display: grid;
@@ -286,6 +311,10 @@ input::file-selector-button{
     display: none;
 }
 
+.active-link{
+    text-decoration: underline;
+    text-transform: uppercase;
+}
 
 /* ==================================================
                 agent page styles
@@ -425,6 +454,67 @@ input::file-selector-button{
 
 
 /* ==================================================
+                agent dashboard
+================================================== */
+
+.dashboard-body{
+    height: 100%;
+    width: 100%;
+}
+
+.dashboard-body .side-bar{
+    background-color: var(--sidebar-background-color);
+    padding: 50px 0 20px 50px;
+    width: 300px;
+}
+
+.dashboard-body .side-bar a{
+    color: var(--secondary-color);
+}
+
+.dashboard-body .side-bar i{
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.dashboard-body .side-bar p{
+    font-size: 1rem;
+}
+
+.dashboard-body .side-bar .function-card{
+    padding: 15px 20px;
+    transition: all ease 400ms;
+}
+
+.dashboard-body .side-bar .function-card:hover{
+    box-shadow: -2px 2px 4px var(--shadow-color);
+    border-radius: 10px 0 0 10px;
+    background-color: #fff;
+}
+
+.active-function{
+    box-shadow: -2px 2px 4px var(--shadow-color);
+    border-radius: 10px 0 0 10px;
+    background-color: #fff;
+}
+
+.dashboard-body table{
+    margin-top: 30px;
+}
+
+table {
+    text-align: center;
+}
+
+table tr{
+    height: 60px;
+}
+
+table th{
+    background-color: var(--input-button-color);
+}
+
+/* ==================================================
                     test desing
 ================================================== */
 
@@ -440,6 +530,3 @@ input::file-selector-button{
     position: absolute;
 }
 
-.images image:nth-child(1){
-    z-index: 11;
-}

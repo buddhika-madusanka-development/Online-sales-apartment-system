@@ -31,37 +31,48 @@
             // make connection with agent table for collect the data about agent
             $query = "SELECT * FROM agents";
             $result = mysqli_query($conn, $query);
-            $rowCount = mysqli_num_rows($result);
+            
+            if($result){
+                $rowCount = mysqli_num_rows($result);
+                
+                if($rowCount > 0){
+
+                    while($row = mysqli_fetch_assoc($result)){
+                        $userId = $row['user_id'];
         
-            while($row = mysqli_fetch_assoc($result)){
-                $userId = $row['user_id'];
-
-                // make connection with user table for seek the data reffering the agents table
-                $checkUser = "SELECT * FROM users WHERE user_id = '$userId'";
-                $userCheckResult = mysqli_query($conn, $checkUser);
-                $userRow = mysqli_fetch_assoc($userCheckResult);
-
-                // Seeking the dara through the users table
-                $userFirstName = $userRow['user_first_name']; 
-                $userlastName = $userRow['user_last_name']; 
-                $companyName = $row['agent_agency'];
-                $fileName = $userRow['user_profile_picture'];
-                $name = $userFirstName." ".$userlastName;
-                ?>
-
-                    <!-- single agent card desing -->
-                    <div class = 'agent-card margin-y-20'>
-                        <a href = './agent-profile.php?agentId=<?php echo $row['agent_id']?>&&agentName=<?php echo $name?>'>
-                            <img src="../sources/users/<?php echo $fileName?>" alt="">
-                        </a>
-                        <div class="text-content">
-                            <h3 class = 'agent-name'><?php echo $userFirstName." ".$userlastName ?></h3>
-                            <p class = 'agency-name'><?php echo$companyName ?></p>
-                            <a href = './agent-profile.php?agentId=<?php echo $row['agent_id']?>'>See more -></a>
-                        </div>
-                    </div>
-                <?php
+                        // make connection with user table for seek the data reffering the agents table
+                        $checkUser = "SELECT * FROM users WHERE user_id = '$userId'";
+                        $userCheckResult = mysqli_query($conn, $checkUser);
+                        $userRow = mysqli_fetch_assoc($userCheckResult);
+        
+                        // Seeking the dara through the users table
+                        $userFirstName = $userRow['user_first_name']; 
+                        $userlastName = $userRow['user_last_name']; 
+                        $companyName = $row['agent_agency'];
+                        $fileName = $userRow['user_profile_picture'];
+                        $name = $userFirstName." ".$userlastName;
+                        ?>
+        
+                            <!-- single agent card desing -->
+                            <div class = 'agent-card margin-y-20'>
+                                <a href = './agent-profile.php?agentId=<?php echo $row['agent_id']?>&&userId=<?php echo $userId?>'>
+                                    <img src="../sources/users/<?php echo $fileName?>" alt="">
+                                </a>
+                                <div class="text-content">
+                                    <p> <?php echo $fileName ?></p>
+                                    <h3 class = 'agent-name'><?php echo $userFirstName." ".$userlastName ?></h3>
+                                    <p class = 'agency-name'><?php echo$companyName ?></p>
+                                    <a href = './agent-profile.php?agentId=<?php echo $row['agent_id']?>&&userId=<?php echo $userId?>'>See more -></a>
+                                </div>
+                            </div>
+                        <?php
+                    }
+                }
             }
+            else{
+                echo "Something went wrong";
+            }
+        
         ?>
     </div>
 </div>

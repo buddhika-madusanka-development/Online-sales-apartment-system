@@ -2,9 +2,8 @@
     include './component/head.php';
 ?>
 
-<div class="images">
-    <img src="../sources/users/JamesKing.jpg" class="soajfbsdagpi" alt="">
-    <img src="../sources/users/JaneSmith.jpg" class="soajfbsdagpi" alt="">
-    <img src="../sources/users/DavidWilson.jpg" class="soajfbsdagpi" alt="">
-    <img src="../sources/users/EmmaMartinez.jpg" class="soajfbsdagpi" alt="">
-</div>
+<form action="./test.config.php" method="post">
+    <input type="text" name="first_name">
+    <input type="text" name="last_name">
+    <input type="submit" value="submit">
+</form>
