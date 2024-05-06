@@ -1,6 +1,6 @@
 <?php
 
-require_once '../config/db.php'; 
+require_once './db.php'; 
 
 $reg_firstname = $_POST["first-name"];
 $reg_lastname = $_POST["last-name"];
@@ -17,34 +17,13 @@ if($result->num_rows>0)
     echo "<script> alert('This mail is already used')</script>";
 }
 else{
-    $sql= "INSERT INTO user (user_first_name, user_last_name,user_mail, user_password, profile_picture ) VALUES ('$reg_firstname ','$reg_lastname ','$reg_email','$reg_password','$file_name')";
-
-
-$result = $conn -> query($sql);
-if($conn->query($sql))
-{
-    echo "<script> alert('Insert Successful!')</script>";
-    // header('location:#');//Re-direct to home
-}
-else{
-        echo "Error".$conn->error;
-    }
+    $sql= "INSERT INTO user (user_first_name, user_last_name,user_mail, user_password, user_profile_picture ) VALUES ('$reg_firstname ','$reg_lastname ','$reg_email','$reg_password','$file_name')";
     
 }
 
-
-    
-if($result){
-    echo "Insert Successful!";
-}
+header('location:../pages/home.php');
 
 
 $conn->close();
-
-
-
-
-
-
 
 ?>

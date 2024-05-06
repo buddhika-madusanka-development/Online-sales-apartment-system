@@ -59,3 +59,10 @@ select {
     color: black;
     margin-top: 30px;
 }
+
+.apartment-cards-home{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2rem 3rem;
+    margin: 50px auto;
+}

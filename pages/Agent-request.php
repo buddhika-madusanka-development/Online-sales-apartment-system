@@ -23,7 +23,7 @@
         </div>
 
         <div class="wrapper">
-            <form action="<? $_SERVER['PHP_SELF'] ?>" method="post">
+            <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
 
                 <?php
                 if (isset($_POST["submit"])) {
@@ -60,10 +60,10 @@
                     $query = "SELECT * FROM users WHERE user_mail = '$email'";
                     $result = mysqli_query($conn, $query);
                     $row = mysqli_fetch_assoc($result);
-                    $userId = $row['user_id'];
+                    $userId = $row['user_ID'];
 
                     if ($result) {
-                        $sql = "INSERT INTO reqagent(user_id,agent_NIC, agent_phone_number, agent_agency, agent_experience, agent_customer_count, agent_cover_img) VALUES (?, ?, ?, ?, ?,?, ?)";
+                        $sql = "INSERT INTO agent(user_ID,agent_NIC, agent_phone_number, agent_agency, agent_experience, agent_customer_count, agent_cover_img) VALUES (?, ?, ?, ?, ?,?, ?)";
 
                         $stmt = mysqli_stmt_init($conn);
                         $prepareStmt = mysqli_stmt_prepare($stmt, $sql);

@@ -1,12 +1,12 @@
 <div class="header bg-primary">
     <div class="container h-min-80 flex flex-space-between flex-vertical-center">
         <div class="logo-section flex flex-space-between flex-vertical-center">
-            <span class="logo">FindPlace</span>
+            <a href="./home.php"><span class="logo">FindPlace</span></a>
             <i class="ri-menu-line menu-icon"></i>
         </div>
 
         <div class="apartment-link-set link-set link-set-1 link-set-active flex flex-gap-y-20">
-            <a href="./showcase.php" class="nav-link active-link rent">Rent Apartment</a>
+            <a href="./showcase.php" class="nav-link rent">Rent Apartment</a>
             <a href="./showcase.php" class="nav-link buy">Buy Apartment</a>
             <a href="./agents.php" class="nav-link find">Find Agent</a>
         </div>

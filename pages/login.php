@@ -10,7 +10,7 @@
 </head>
   
   
-  <div class="body-content">
+  <div class="body-content container">
 
     <div class="description">
       <h1>Welcome to your dream apartment!</h1><br>
@@ -20,7 +20,6 @@
   
     <div class="login-form">
       <form action="../config/login-display.php" method="post">
-        <fieldset>
           <h2>Login</h2> <br>
           <input type="email" id="username" name="username" placeholder="Username"><br><br>
           <input type="password" id="password" name="password" placeholder="Password"><br><br>
@@ -36,7 +35,6 @@
           <a href="./registration.php" id="register">Register</a><br><br>
           <a href="#" id="link1">Terms & Conditions | </a>
           <a href="#" id="link2">Privacy</a>
-          </fieldset>
       </form>
     </div>
   </div>

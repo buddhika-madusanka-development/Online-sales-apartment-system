@@ -7,7 +7,7 @@
 </head>
 <body>
 <?php
-    require '../config/config.php';
+    require './db.php';
 
     global $con;
 
@@ -17,7 +17,7 @@
       $password = $_POST['password'];
     
       $sqlR = "SELECT * FROM users WHERE user_mail = '$username' AND user_password = '$password'";
-      $result = $con->query($sqlR);
+      $result = $conn->query($sqlR);
     
       if($result->num_rows > 0)
       {
@@ -36,10 +36,11 @@
           echo "<script>";
           echo "alert('Invalid user login!')";
           echo "</script>";
+          header('location:../pages/login.php');
       }
     }
 
-    $con->close();
+    $conn->close();
   ?>
 
 </body>

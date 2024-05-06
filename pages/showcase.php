@@ -8,13 +8,7 @@ if (isset($_GET['apartment_type'])) {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apartment showcase</title>
     <link rel="stylesheet" href="../styles/showcase.css">
 </head>
 

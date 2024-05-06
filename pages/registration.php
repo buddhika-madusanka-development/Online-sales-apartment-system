@@ -60,7 +60,11 @@ require './component/header.php';
                         }
                         if (count($errors) > 0) {
                             foreach ($errors as $error) {
-                                echo "<div class='alert'>$error</div>";
+                                ?>
+                                    <div class="alert">
+                                        <?php echo $error ?>
+                                    </div>
+                                <?php
                             }
                         } else {
                             //send data to the server
@@ -104,7 +108,7 @@ require './component/header.php';
                         <input type="submit" value="Register now" name="submit">
                     </div>
                     <div class="text">
-                        <p>Already have an Account? <a href="./login.php">Login now</a> </p>
+                        <p class = "margin-y-10">Already have an Account? <a href="./login.php">Login now</a> </p>
                         <p>Need to become seller? <a href="./RegisterSeller.php">Seller Registration</a> </p>
                     </div>
                 </form>

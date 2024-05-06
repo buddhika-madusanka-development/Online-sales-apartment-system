@@ -23,7 +23,7 @@
                  <img src="../sources/Reg-img.jpg" alt="Reg -img"> 
             </div>
             <div class="col-reg">
-                <form action="../../config/seller-reg-controller.php" method="post">
+                <form action ="../config/seller-reg-controller.php" method="post">
                     <div class="input-row">
                         <div class="input-group">
                             <label >First name</label>

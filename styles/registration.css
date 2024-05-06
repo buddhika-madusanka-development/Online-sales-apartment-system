@@ -15,7 +15,7 @@
   height:100vh; /*120vh;*/ /* Adjust height as needed */
   box-sizing: border-box;
   padding: 20px;
-  background-color: #07112a;
+  background-color: #07112a
 }
 
 .clearfix::after {
@@ -168,14 +168,17 @@ form .terms h3{
   .alert{
 
     font-family:'poppins', sans-serif;
-    height: 20px;
+    padding: 10px;
+    border: 1px solid #690000;
+    border-radius: 5px;
     margin: 10px 0;
     /* outline: none; */
     padding: 5px;
     font-size: 14px;
     font-weight: 400;
     color: #690000;
-    border: 1px solid #C7BEBE;
+    background-color: rgba(249, 184, 184, 0.4);
+
   }
 
   .text a{

@@ -53,7 +53,7 @@
                                     <td><?php echo $row['apartment_ID']; ?></td>
                                     <td><?php echo $row['apartment_city']; ?></td>
                                     <td><?php echo $row['apartment_cost']; ?></td>
-                                    <td><button name='btnDel' id="btnDel"><a class="orange-btn" href="./delete-apartment.php?apartmentId='<?php echo $row['apartment_ID']?>'">Delete</a></button></td>
+                                    <td><button style="background-color: transparent; border:none;" name='btnDel' id="btnDel"><a class="orange-btn" href="../../config/delete-apartment.php?apartmentId='<?php echo $row['apartment_ID']?>'">Delete</a></button></td>
                             </tr>
                             <?php
                         }

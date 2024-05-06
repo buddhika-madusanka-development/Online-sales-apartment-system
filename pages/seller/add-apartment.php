@@ -59,7 +59,7 @@
     {
 
         $requst = "SELECT * FROM apartment";
-        $result = $con -> query($requst);
+        $result = $conn -> query($requst);
         
         if($result){
             $first_line = $_POST['1st-line'];
@@ -74,7 +74,7 @@
 
             $newQuery = "INSERT INTO `apartment`(`publisher_ID`, `apartment_first_address_line`, `apartment_second_address_line`, `apartment_city`, `apartment_contact_number`, `apartment_cost`, `apartment_person_count`,`apartment_number_rooms`, `apartment_description`) VALUES ('$publisher_id','$first_line','$second_line','$City','$contact','$cost','$count','$rooms','$description')";
 
-            $newResult = mysqli_query($con, $newQuery);
+            $newResult = mysqli_query($conn, $newQuery);
 
             if($newResult)
             {

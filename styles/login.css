@@ -2,7 +2,6 @@
 .body-content {
     font-family: Arial, sans-serif;
     display: flex;
-    min-height: 100vh;
     align-items: center;
     justify-content: space-between;
     padding: 20px;
@@ -40,8 +39,14 @@
 }
 
 .description {
-    flex: 0 0 40%;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
     padding: 20px;
+    text-align: center;
 }
 
 .login-form {
@@ -49,6 +54,10 @@
     float: right;
     margin: 50px;
     padding: 20px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #username, #password {
@@ -71,6 +80,7 @@ fieldset{
 
 #btn {
     background-color: black;
+    border: 2px solid black;
     color: white;
     width: 100%;
     margin: 2z0px 0;
