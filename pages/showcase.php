@@ -95,7 +95,7 @@ if (isset($_GET['apartment_type'])) {
                         <h3><?php echo $row['apartment_cost'] ?></h2>
                     </div>
                 </div>
-                <a href="./single-apartment.php?apartmentId='<?php echo $row['apartment_ID']?>'">More Details</a>
+                <a href="./single-apartment.php?apartmentId=<?php echo $row['apartment_ID']?>">More Details</a>
             </div>
 
         <?php
