@@ -269,6 +269,10 @@ input[type = 'submit']{
     padding: 10px 50px;
 }
 
+input[tyoe = 'checkbox']{
+    height: 10px;
+}
+
 input::file-selector-button{
     background-color: var(--input-button-color);
     color: var(--secondary-color);

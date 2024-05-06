@@ -18,8 +18,8 @@
                 if(isset($_SESSION['user-id'])){ ?>
                     <a href="./agents.php" class="nav-link find">Dashboard</a>
                 <?php }else{?>                    
-                    <a href="" class="nav-link login">Login | Register</a>
-                    <a href="" class="  border-btn">Become Agent</a>
+                    <a href="./registration.php" class="nav-link login">Login | Register</a>
+                    <a href="./Agent-request.php" class="  border-btn">Become Agent</a>
                 <?php }
             ?>
         </div>

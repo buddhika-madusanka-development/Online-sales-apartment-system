@@ -1,8 +1,9 @@
 <?php
-    $pageTitle = 'sample name';
-    include_once '../component/inFileHeader.php';
-    include_once '../component/sellerHeader.php';
+$pageTitle = 'sample name';
+include_once '../component/inFileHeader.php';
+include_once '../component/sellerHeader.php';
 ?>
+
 <div class="dashboard-body flex">
     <div class="side-bar">
         <a href="./apartments.php">
@@ -20,8 +21,8 @@
     </div>
     <div class="body-content w-100 margin-y-50">
         <div class="container">
-           <h1 class="section-title">Add New Meeting</h1>
-           <form action="../../config/add-meetin.php" method="post">
+            <h1 class="section-title">Add New Meeting</h1>
+            <form action="../../config/add-meetin.php" method="post">
 
                 <div class="double-input flex flex-gap-y-20">
 
@@ -30,35 +31,34 @@
                 </div>
                 <select name="meeting-with" id="">
                     <?php
-                        include_once '../../config/db.php';
-                        
-                        $query = "SELECT * FROM agents";
-                        $result = mysqli_query($conn, $query);
-                        
-                        if($result){
-                            $rowCount = mysqli_num_rows($result);
-                            echo $rowCount;
-                            
-                            while($row = mysqli_fetch_assoc($result)){
-                                $userId =$row['user_id'];
-                                $userQuery = "SELECT * FROM users WHERE user_id = '$userId'";
-                                $userResult = mysqli_query($conn, $userQuery);
-                                $userRow = mysqli_fetch_assoc($userResult);    
-                                $userFirstName = $userRow['user_first_name'];
-                                $userLastName = $userRow['user_last_name'];
-                                $userFullName = $userFirstName." ".$userLastName;
-                                
-                                ?>
-                                    <option value=""><?php echo $userFullName ?></option>
-                                <?php
-                            }
+                    include_once '../../config/db.php';
+
+                    $query = "SELECT * FROM agent";
+                    $result = mysqli_query($conn, $query);
+
+                    if ($result) {
+                        $row = mysqli_fetch_assoc($result);
+                        $userId = $row['user_ID'];
+
+                        $userQuery = "SELECT * FROM users WHERE user_ID = '$userId'";
+                        $userResult = mysqli_query($conn, $userQuery);
+
+                        if ($userQuery) {
+                            $userRow = mysqli_fetch_assoc($userResult);
+                            $userFirstName = $userRow['user_first_name'];
+                            $userlastName = $userRow['user_last_name'];
+                            $userFullName = $userFirstName . " " . $userlastName;
+                            ?>
+                                <option value="<?php $userFullName ?>"><?php echo $userFullName ?></option>
+                            <?php
                         }
+                    }
                     ?>
                 </select>
                 <br>
-                <input type="submit" class="margin-y-20" value="Add Meeting" >
+                <input type="submit" class="margin-y-20" value="Add Meeting">
 
-           </form>
+            </form>
         </div>
     </div>
 </div>

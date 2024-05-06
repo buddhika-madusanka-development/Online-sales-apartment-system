@@ -13,6 +13,6 @@
 
     if($result){
         echo "<script>alert('Setup new meeting successfully')</script>";
+        header('location:../pages/seller/add-meeting.php');
     }
-    header('location:../pages/seller/add-meeting.php');
     

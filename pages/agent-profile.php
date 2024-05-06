@@ -11,33 +11,30 @@
 
 
     // get user id and select the data
-    $query = "SELECT * FROM users WHERE user_id ='$userId'";
-    $result = mysqli_query($conn, $query);
+    $userQuery = "SELECT * FROM users WHERE user_ID= '$userId'";
+    $agentQuery = "SELECT * FROM agent WHERE agent_ID= '$agentId'";
 
-    if($result){
-        $row = mysqli_fetch_assoc($result);
-    
-        // Make connection with agents table
-        $agentQuery = "SELECT * FROM agents WHERE agent_id = '$agentId'";
-        $agentResult = mysqli_query($conn, $agentQuery);
-    
-        if($agentResult){
-            $agentRow = mysqli_fetch_assoc($agentResult);
-        
-            // Collect data from the agent table
-            $agentShortDescription = $agentRow['agent_ short_description'];
-            $agentDescription = $agentRow['agent_ description'];
-            $agentAgency = $agentRow['agent_agency'];
-            $agentExperience = $agentRow['agent_experience_years'];
-            $agenProjects = $agentRow['success_projects_count'];
-            $agentClients = $agentRow['customer_count'];
-            $agentCover = $agentRow['agent_cover_img'];
-        
-            // Collect data from the users table reffering the agent table
-            $agentName = $row['user_first_name']." ".$row['user_last_name'];
-            $pageTitle = $agentName;
-            $agentMail = $row['user_mail'];
-        }
+    $userResult = mysqli_query($conn, $userQuery);
+    $agentResult = mysqli_query($conn, $agentQuery);
+
+    if($userResult){
+        $userRow = mysqli_fetch_assoc($userResult);
+        $agentRow = mysqli_fetch_assoc($agentResult);
+
+        $userFirstName = $userRow['user_first_name'];
+        $userlastName = $userRow['user_last_name'];
+        $userMail = $userRow['user_mail'];
+        $agentName = $userFirstName." ".$userlastName;
+
+        $agentExperience = $agentRow['agent_experience'];
+        $agentAgency = $agentRow['agent_agency'];
+        $agentProjects = $agentRow['project_count'];
+        $agentClients = $agentRow['agent_customer_count'];
+        $agentShortDescription = $agentRow['agent_short_description'];
+        $agentDescription = $agentRow['agent_description'];
+        $agentCover = $agentRow['agent_cover_img'];
+
+        $pageTitle = $agentName;
     }
 
     include_once './component/head.php';
@@ -57,7 +54,7 @@
             <h1>I am <?php echo $agentName ?></h1>
             <p><?php echo $agentCover ?></p>
             <p class="w-80  margin-y-20"><?php echo $agentShortDescription?></p>
-            <a class="orange-btn" href="./agent-contact.php?agentMail=<?php echo $agentMail ?>" >Contact Me</a>
+            <a class="orange-btn" href="./agent-contact.php?agentMail='<?php echo $agentMail ?>'" >Contact Me</a>
         </div>
     </div>
 </div>
@@ -97,7 +94,7 @@
                     <i class="ri-check-double-line"></i>
                 </div>
                 <div class="stat-text">
-                    <p class="stat-header"><?php echo $agenProjects ?> +</p>
+                    <p class="stat-header"><?php echo $agentProjects ?> +</p>
                     <p class="stat-sub-header">Successfull projectes</p>
                 </div>
             </div>
