@@ -6,9 +6,8 @@
         </div>
 
         <div class="apartment-link-set link-set link-set-1 link-set-active flex flex-gap-y-20">
-            <a href="" class="nav-link active-link rent">Rent Apartment</a>
-            <a href="" class="nav-link buy">Buy Apartment</a>
-            <a href="" class="nav-link sell">Sell Apartment</a>
+            <a href="./showcase.php" class="nav-link active-link rent">Rent Apartment</a>
+            <a href="./showcase.php" class="nav-link buy">Buy Apartment</a>
             <a href="./agents.php" class="nav-link find">Find Agent</a>
         </div>
         <div class="control-login-link-set link-set link-set-2  link-set-active flex flex-gap-y-20 flex-vertical-center">

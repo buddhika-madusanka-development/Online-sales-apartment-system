@@ -12,7 +12,10 @@
     $result = mysqli_query($conn, $query);
 
     if($result){
-        echo "<script>alert('Setup new meeting successfully')</script>";
+        echo "<script>";
+        echo "alert('Meeting successfull')";
+        echo "</script>";
+
         header('location:../pages/seller/add-meeting.php');
     }
     

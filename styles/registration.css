@@ -177,3 +177,8 @@ form .terms h3{
     color: #690000;
     border: 1px solid #C7BEBE;
   }
+
+  .text a{
+    color: #000000;
+    font-weight: 600;
+  }

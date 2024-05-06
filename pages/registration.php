@@ -104,7 +104,7 @@ require './component/header.php';
                         <input type="submit" value="Register now" name="submit">
                     </div>
                     <div class="text">
-                        <p>Already have an Account? <a href="#">Login now</a> </p>
+                        <p>Already have an Account? <a href="./login.php">Login now</a> </p>
                     </div>
                 </form>
             </div>
