@@ -105,6 +105,7 @@ require './component/header.php';
                     </div>
                     <div class="text">
                         <p>Already have an Account? <a href="./login.php">Login now</a> </p>
+                        <p>Need to become seller? <a href="./RegisterSeller.php">Seller Registration</a> </p>
                     </div>
                 </form>
             </div>
