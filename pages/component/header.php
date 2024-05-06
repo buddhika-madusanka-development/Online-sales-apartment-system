@@ -1,7 +1,7 @@
 <div class="header bg-primary">
     <div class="container h-min-80 flex flex-space-between flex-vertical-center">
         <div class="logo-section flex flex-space-between flex-vertical-center">
-            <span class="logo">FindPlace</span>
+            <a href="./home.php"><span class="logo">FindPlace</span></a>
             <i class="ri-menu-line menu-icon"></i>
         </div>
 
