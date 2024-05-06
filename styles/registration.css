@@ -15,7 +15,11 @@
   height:100vh; /*120vh;*/ /* Adjust height as needed */
   box-sizing: border-box;
   padding: 20px;
-  background-color: #07112a
+  /* background-color: #07112a */
+  background-image: url('../sources/agent.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .clearfix::after {
