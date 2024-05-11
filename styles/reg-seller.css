@@ -1,0 +1,64 @@
+/* =======================================================
+                    Seller registration
+======================================================= */
+
+.container-reg{
+    border-radius: 5px;
+    padding: 10px;
+
+}
+
+.header-reg{
+
+    text-align: center;
+}
+.col-reg{
+    float: left;
+    width: 50%;
+    margin-top: 5px;
+    padding: 20px;
+}
+.col-reg img{
+    width:100%;
+}
+.row:after{
+    content: "";
+    display:table;
+    clear: both;
+}
+
+
+.container-reg {
+    max-width: 80%; 
+    margin: auto; 
+    padding: 20px;
+}
+
+
+.header-reg {
+    text-align: center;
+}
+
+
+.input-row {
+    display: flex;
+    flex-direction: column; 
+    gap: 10px; 
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column; 
+    margin-bottom: 10px; 
+}
+
+.input-group label {
+    font-weight: bold; 
+}
+
+.input-group input {
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+}
+

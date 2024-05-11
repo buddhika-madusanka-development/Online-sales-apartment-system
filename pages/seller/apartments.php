@@ -3,6 +3,16 @@
     include_once '../component/inFileHeader.php';
     include_once '../component/sellerHeader.php';
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../styles/apartment.css">
+    <script src="../../scripts/sideBar.js"></script>
+</head>
+<body>
 <div class="dashboard-body flex">
     <div class="side-bar">
         <a href="./apartments.php">
@@ -20,8 +30,44 @@
     </div>
     <div class="body-content w-100 margin-y-50">
         <div class="container">
-            this is contaienr
+            <a href="add-apartment.php" class="blue-btn">Add New Apartment</a>
+            <br><br>
+            <table class="w-100">
+                <tr>
+                    <th>Apartment Id</th>
+                    <th>City</th>
+                    <th>Price</th>
+                    <th>Apartment Function</th>
+                </tr>
+                <?php
+                    require '../../config/db.php';
+
+                    $query = 'SELECT * FROM apartment';
+                    $result = $conn->query($query);
+                    
+                    if($result->num_rows > 0)
+                    {
+                        while($row = $result->fetch_assoc())
+                        {    ?>                   
+                            <tr>
+                                    <td><?php echo $row['apartment_ID']; ?></td>
+                                    <td><?php echo $row['apartment_city']; ?></td>
+                                    <td><?php echo $row['apartment_cost']; ?></td>
+                                    <td><button style="background-color: transparent; border:none;" name='btnDel' id="btnDel"><a class="orange-btn" href="../../config/delete-apartment.php?apartmentId='<?php echo $row['apartment_ID']?>'">Delete</a></button></td>
+                            </tr>
+                            <?php
+                        }
+                    }    
+                    else
+                    {
+                        echo '</table><p>Someting went wrong</p>';
+                    }
+                        
+                ?>
+            </table>
         </div>
     </div>
-</div>
+</body>
+</html>
+
 <script src="../../scripts/sideBar.js"></script>

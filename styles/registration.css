@@ -1,0 +1,191 @@
+/* CSS for the left and right parts */
+.left-part, .right-part {
+  width: 50%;
+  float: left;
+  height: 100vh; /* Adjust height as needed */
+  box-sizing: border-box;
+  padding: 20px;
+  background-color: rgb(255, 255, 255);
+}
+
+
+.left-part {
+  width: 50%;
+  float: left;
+  height:100vh; /*120vh;*/ /* Adjust height as needed */
+  box-sizing: border-box;
+  padding: 20px;
+  /* background-color: #07112a */
+  background-image: url('../sources/agent.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Body color = #4070f4
+border color = #c7bebe;
+hover = #0e4bf1 */
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+
+*{
+    margin: 0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'poppins', sans-serif;
+    
+}
+
+body{
+  width: 100vw;
+  height: 100%;
+  display: block;
+}
+
+.body-container{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+  }
+  
+
+.wrapper{
+    margin-left: 150px;
+    margin-top:50px;
+    position: relative;
+    max-width: 490px;
+    width: 100%;
+    background: #fff;
+    padding: 43px;
+    border-radius: 6px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  }
+
+.wrapper h2{
+    position: relative;
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+  }
+.wrapper h2::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 28px;
+    border-radius: 12px;
+    background: #ffffff;
+  }
+
+.wrapper form {
+    margin-top:30px;
+
+}
+
+.wrapper form .input-box{
+    height: 52px;
+    margin: 18px 0;
+  }
+
+
+  form .input-box input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    padding: 0 15px;
+    font-size: 17px;
+    font-weight: 400;
+    color: #333;
+    border: 1.5px solid #C7BEBE;
+    /* border-bottom-width: 2.5px; */
+    border-radius: 6px;
+    transition: all 0.3s ease;
+  }
+ 
+ 
+.input-box input:focus{
+  border-color: #000000;
+}
+
+form .terms {
+  display: flex;
+  /* align-items: center; */
+}
+
+
+form .terms h3{
+    color: #707070;
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 10px;
+  }
+
+/* 
+  form .terms h3{
+    color: #707070;
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: px;
+  } */
+
+.input-box.button input{
+    color: #fff;
+    letter-spacing: 1px;
+    border: none;
+    background: #07112a;
+    cursor: pointer;
+  }
+
+  .input-box.button input:hover{
+    background: #077f2d;
+  }
+  /* //#0ef156; - green  */
+
+
+  
+  form .text h3{
+   color: #333;
+   width: 100%;
+   text-align: center;
+  }
+  /* Login now twxt */
+  form .text h3 a{
+    color: #4070f4;
+    text-decoration: none;
+  }
+
+  form .text h3 a:hover{
+    text-decoration: underline;
+  }
+
+
+  .alert{
+
+    font-family:'poppins', sans-serif;
+    padding: 10px;
+    border: 1px solid #690000;
+    border-radius: 5px;
+    margin: 10px 0;
+    /* outline: none; */
+    padding: 5px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #690000;
+    background-color: rgba(249, 184, 184, 0.4);
+
+  }
+
+  .text a{
+    color: #000000;
+    font-weight: 600;
+  }
