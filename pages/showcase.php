@@ -79,8 +79,9 @@ if (isset($_GET['apartment_type'])) {
         $resulltall = $conn->query($searchall);
 
         while ($row = $resulltall->fetch_assoc()) {
+            $apartment_id = $row['apartment_ID'];
         ?>
-
+        
             <div class="apartment-card">
                 <div class="image">
                     <img src="../sources/apartment/<?php echo $row['apartment_image']?>" alt="">
@@ -95,9 +96,8 @@ if (isset($_GET['apartment_type'])) {
                         <h3><?php echo $row['apartment_cost'] ?></h2>
                     </div>
                 </div>
-                <a href="./single-apartment.php?apartmentId=<?php echo $row['apartment_ID']?>">More Details</a>
+                <a href='./single-apartment.php?apartmentId=<?php echo $apartment_id ?>'>More Details</a>
             </div>
-
         <?php
         }
 

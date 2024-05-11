@@ -6,6 +6,7 @@ require './component/header.php';
     <?php  //get the id from apartment showcase
         $id = $_GET['apartmentId'];
         // $id = 1;
+        echo $id;
     ?>
 
     <link rel="stylesheet" href="../styles/image-slider.css">

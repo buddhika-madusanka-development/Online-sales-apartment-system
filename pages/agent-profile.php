@@ -52,7 +52,6 @@
     <div class="container">
         <div class="text-content w-50">
             <h1>I am <?php echo $agentName ?></h1>
-            <p><?php echo $agentCover ?></p>
             <p class="w-80  margin-y-20"><?php echo $agentShortDescription?></p>
             <a class="orange-btn" href="./agent-contact.php?agentMail='<?php echo $agentMail ?>'" >Contact Me</a>
         </div>
